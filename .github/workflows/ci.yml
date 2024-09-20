@@ -1,0 +1,35 @@
+name: CI Pipeline
+
+on: 
+  [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Install Dependencies
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+  gitleaks:
+    runs-on: ubuntu-latest
+    name: Gitleaks Secret Scan
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Gitleaks
+        uses: zricethezav/gitleaks-action@v2.1.0
+        with:
+          args: --path . --verbose

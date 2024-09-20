@@ -1,0 +1,10 @@
+repos:
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.16.3  # Use the latest stable version
+    hooks:
+      - id: gitleaks
+        name: Run Gitleaks
+        entry: gitleaks detect --source .
+        language: docker
+        types: [python, yaml, text]
+        stages: [commit]

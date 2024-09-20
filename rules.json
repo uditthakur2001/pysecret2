@@ -1,0 +1,7 @@
+{
+    "aws_access_key_id": "AKIA[0-9A-Z]{16}",
+    "aws_secret_access_key": "([a-zA-Z0-9/+]{40})",
+    "generic_secret_key": "['\"]?(SECRET_KEY)['\"]?\\s*:\\s*['\"][^'\"]{8,}['\"]",
+    "database_user": "['\"]?(DATABASE_USER)['\"]?\\s*:\\s*['\"][^'\"]{5,}['\"]",
+    "database_password": "['\"]?(DATABASE_PASSWORD)['\"]?\\s*:\\s*['\"][^'\"]{5,}['\"]"
+}
